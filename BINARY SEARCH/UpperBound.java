@@ -2,8 +2,8 @@ import java.util.*;
 
 import static java.lang.System.in;
 
-//first index at which the value of element is  >= the target
-public class LowerBound {
+//first index at which the value of element is  > the target
+public class UpperBound {
 
     public static Scanner sc = new Scanner(System.in);
 
@@ -18,10 +18,10 @@ public class LowerBound {
 
         int target = sc.nextInt();
 
-        System.out.println(lowerBound(arr, target));
+        System.out.println(upperBound(arr, target));
     }
 
-    public static int lowerBound(int[] arr, int target) {
+    public static int upperBound(int[] arr, int target) {
         // code here
 
         int start = 0;
@@ -32,7 +32,7 @@ public class LowerBound {
 
             int mid = (start + end) / 2;
 
-            if (arr[mid] >= target) {
+            if (arr[mid] > target) {
                 ans = mid;
                 end = mid - 1;
             }
