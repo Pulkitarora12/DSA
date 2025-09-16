@@ -2,7 +2,7 @@ package Day2;
 
 import java.util.Scanner;
 
-public class SearchInARotatedSortedArray {
+public class SearchInARotatedSortedArray2 {
 
     public static Scanner sc = new Scanner(System.in);
 
@@ -16,9 +16,11 @@ public class SearchInARotatedSortedArray {
         }
 
         int target = sc.nextInt();
+
+        System.out.println(helper(arr, target));
     }
 
-    public static int helper(int[] nums, int target) {
+    public static boolean helper(int[] nums, int target) {
 
         /*let first half be the part which comes to the begining after rotation
         and let second half me the part which goes to end after rotating
@@ -33,19 +35,26 @@ public class SearchInARotatedSortedArray {
 
             int mid = (start + end) / 2;
 
-            if (nums[mid] == target) return mid;
+            if (nums[mid] == target) return true;
+
+            //if this condition satisfies, we wont be able to identify the sorted part;
+            if (nums[mid] == nums[start] && nums[start] == nums[end]) {
+                start++;
+                end--;
+            }
 
             //the first task is to identify which half is rotated
             //if nums[start] <= nums[mid] => first half is sorted
             //if nums[start] >= nums[mid] => second half is sorted
 
-            if (nums[start] <= nums[mid]) {
+            else if (nums[start] <= nums[mid]) {
                 if (target >= nums[start] && target <= nums[mid]) { //means target is in the first half
                     end = mid - 1;
                 } else {
                     start = mid + 1;  //means target is either smaller than start or greated than end
                 }
             }
+
             else {
                 if (target <= nums[end] && target >= nums[mid]) {//means target is in the second half
                     start = mid + 1;
@@ -55,6 +64,6 @@ public class SearchInARotatedSortedArray {
             }
         }
 
-        return -1;
+        return false;
     }
 }
