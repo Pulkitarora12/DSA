@@ -68,3 +68,6 @@ public class MakeMBouquet {
         System.out.println(ans == max + 1 ? -1 : ans);
     }
 }
+
+
+//https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/

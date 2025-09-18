@@ -43,3 +43,5 @@ public class SearchInsertPosition {
         return ans == -1 ? arr.length : ans;
     }
 }
+
+//https://leetcode.com/problems/search-insert-position/description/

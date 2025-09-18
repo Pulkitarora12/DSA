@@ -67,5 +67,6 @@ public class FirstAndLastOccurence {
 
         return sec;
     }
-
 }
+
+//https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
