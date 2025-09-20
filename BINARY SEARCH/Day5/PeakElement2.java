@@ -62,3 +62,8 @@ public class PeakElement2 {
         return ans;
     }
 }
+
+//use same approach as peak element 1
+//find the col using that approach
+//then  find the max el in that col
+
