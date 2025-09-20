@@ -27,7 +27,7 @@ public class ShipPackagesWithinDdays {
             max = Math.max(max, weight);
         }
 
-        int start = max;
+        int start = max;   //because the min value should be the max element in case the days are equal to the len
         int end = total;
         int ans = total;
 
