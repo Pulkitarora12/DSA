@@ -17,30 +17,24 @@ public class AggressiveCows {
 
         int k = sc.nextInt();
 
-        Arrays.sort(stalls);  //since we need to find the max difference this is better
+        Arrays.sort(stalls);
 
-        int max = 0;
+        int start = 1;  //min diff between any two stalls;
+        int end = stalls[n - 1] - stalls[0];  //max diff between any two stalls;
 
-        for (int i = 0; i < n; i++) {
-            max = Math.max(max, stalls[i]);
-        }
-
-        //we will be checking for all the possible differences, the min one possible will be the answer
-
-        int start = 1;  //this could be the possible minimum difference between any two stalls
-        int end = max - stalls[0]; //this could be the maximum difference between any two stalls
-
-        int ans = 0;
-        int count = 0;
+        int ans = 1;
 
         while (start <= end) {
 
             int mid = (start + end) / 2;
 
-            int minDiff = Integer.MAX_VALUE;
-            int prev = 0;
+            //we need to check at every minimum distance we can maintain which will give us the max ans
 
-            for (int i = 0; i < n - 1; i++) {
+            int prev = 0;
+            int minDiff = Integer.MAX_VALUE;
+            int count = 0;
+
+            for (int i = 1; i < n; i++) {
                 if (stalls[i] - stalls[prev] >= mid) {
                     minDiff = Math.min(minDiff, stalls[i] - stalls[prev]);
                     prev = i;
@@ -48,19 +42,17 @@ public class AggressiveCows {
                 }
             }
 
-            if (stalls[n - 1] - stalls[prev] >= mid) {
-                minDiff = Math.min(minDiff, stalls[n - 1] - stalls[prev]);
-                count++;
-            }
-
-            if (count >= k) { //if that much cows can be arranged with particular max diff we check for higher diff
-                ans = mid;
+            if (count >= k) {   //we will find the maximum distance at which we can place all the k cows
                 start = mid + 1;
+                ans = mid;
             } else {
                 end = mid - 1;
             }
+
         }
 
         System.out.println(ans);
     }
 }
+
+//https://www.geeksforgeeks.org/problems/aggressive-cows/1

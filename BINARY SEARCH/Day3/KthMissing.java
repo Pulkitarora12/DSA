@@ -33,14 +33,16 @@ public class KthMissing {
             }
         }
 
-        int remaining = k - (arr[end] - (end + 1));   //loop ends when end is before start
-        int ans = arr[end] + remaining;
+//        int remaining = k - (arr[end] - (end + 1));   //loop ends when end is before start
+//        int ans = arr[end] + remaining;
 
         //since end can be -1
-        ans = k + end + 1;  //start = end + 1
+        int ans = k + end + 1;  //start = end + 1
         ans = k + start;
 
         System.out.println(ans);
 
     }
 }
+
+//https://leetcode.com/problems/kth-missing-positive-number/description/
