@@ -63,14 +63,13 @@ public class SplitArrayLargestSum {
             //since count is less than k means we had a subarray with sum <= mid which can be further broker to increase the count
             //without disturbing the max sum
             if (count <= k) {
-                ans = mid;
                 end = mid - 1;
             } else {
                 start = mid + 1;
             }
         }
 
-        return ans;
+        return start;
     }
 }
 

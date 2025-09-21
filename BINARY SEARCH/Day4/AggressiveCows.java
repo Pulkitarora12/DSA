@@ -44,14 +44,13 @@ public class AggressiveCows {
 
             if (count >= k) {   //we will find the maximum distance at which we can place all the k cows
                 start = mid + 1;
-                ans = mid;
             } else {
                 end = mid - 1;
             }
 
         }
 
-        System.out.println(ans);
+        System.out.println(end);
     }
 }
 
