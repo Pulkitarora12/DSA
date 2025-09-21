@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static java.lang.System.in;
 
-public class SplitArrayLargestSum {
+public class PaintersPartition {
 
     public static Scanner sc = new Scanner(in);
 
@@ -22,10 +22,6 @@ public class SplitArrayLargestSum {
         System.out.println(helper(arr, k));
     }
 
-    //we need to find the maximum posisble sum
-    //so we traverse through all the possible sums
-    //in order add every element into some subarray, the subarray sum must atleast be equal to the larget element
-    //and the largest possible subarray is the array itself
     public static int helper(int[] arr, int k) {
 
         int max = 0;
@@ -39,21 +35,20 @@ public class SplitArrayLargestSum {
 
         int start = max;
         int end = total;
-        int ans = 0;
 
         while (start <= end) {
 
             int mid = (start + end) / 2;
             int count = 1;
-            int sum = 0;
+            int hrs = 0;
 
             for (int num : arr) {
 
-                if (sum + num <= mid) {
-                    sum += num;
+                if (hrs + num <= mid) {
+                    hrs += num;
                 } else {
                     count++;
-                    sum = num;
+                    hrs = num;
                 }
 
                 if (count > k) {
@@ -71,4 +66,3 @@ public class SplitArrayLargestSum {
         return start;
     }
 }
-
